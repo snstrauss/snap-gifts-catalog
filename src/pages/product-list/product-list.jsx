@@ -3,6 +3,7 @@ import S from './product-list.module.scss';
 import useProductsList from '../../hooks/useProductsList';
 import { useState } from 'react';
 import Header from '../../components/header/header';
+import ItemsList from '../../components/items-list/items-list';
 
 export default function ProductList(){
 
@@ -17,11 +18,7 @@ export default function ProductList(){
             <main>
                 {
                     productsList &&
-                    productsList.map((productItem, idx) => (
-                        <div className={S.item} key={`${idx}-${productItem.id}`}>
-                            {productItem.name}
-                        </div>
-                    ))
+                    <ItemsList items={productsList} ident="id"/>
                 }
             </main>
         </div>

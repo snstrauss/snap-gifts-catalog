@@ -1,0 +1,13 @@
+.container {
+    border: 2px solid blue;
+    flex: 1;
+    flex-basis: 10%;
+    flex-shrink: 1;
+
+    height: 25vh;
+    margin: 2vw;
+
+    & > * {
+        height: 100%;
+    }
+}
