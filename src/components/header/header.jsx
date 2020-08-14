@@ -24,11 +24,15 @@ export default function Header({ vendors, searchChange, vendorChange }){
 
     return (
         <header className={S.container}>
-            <input type="text" onChange={throttledSearch}/>
-            {
-                vendors &&
-                <Select options={vendors} change={selectionChange} />
-            }
+            <div className={S.inner}>
+                <input type="text" onChange={throttledSearch} placeholder="Search for product"/>
+                {
+                    vendors &&
+                    <div className={S.select}>
+                        <Select options={vendors} change={selectionChange} />
+                    </div>
+                }
+            </div>
         </header>
     )
 }
