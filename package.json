@@ -13,7 +13,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "dev": "REACT_APP_DEV_SERVER=1 npm start",
+    "dev": "REACT_APP_LOCAL_IP=$(node getip.js) npm start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

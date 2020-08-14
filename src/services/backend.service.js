@@ -1,8 +1,8 @@
-const ROOT_URL = process.env.REACT_APP_DEV_SERVER
-                    ? 'http://localhost:5000/'
+const ROOT_URL = process.env.REACT_APP_LOCAL_IP
+                    ? `http://${process.env.REACT_APP_LOCAL_IP}:5000/`
                     : 'https://snap-gifts-catalog.herokuapp.com/';
 
-function serverRequest(request, data){
+function serverRequest(request){
     return fetch(ROOT_URL + request).then(res => res.json());
 }
 
