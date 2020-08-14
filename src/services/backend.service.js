@@ -1,11 +1,26 @@
-const ROOT_URL = process.env.REACT_APP_DEV_SERVER ? 'http://localhost:5000/' : 'https://snap-gifts-catalog.herokuapp.com/';
+const ROOT_URL = process.env.REACT_APP_DEV_SERVER
+                    ? 'http://localhost:5000/'
+                    : 'https://snap-gifts-catalog.herokuapp.com/';
 
 function serverRequest(request, data){
     return fetch(ROOT_URL + request).then(res => res.json());
 }
 
-export function getQueriedProducts(query){
-    return serverRequest(`products?query=${query}`);
+function cleanEmptyValues(obj){
+    for (let key in obj){
+        if(!obj[key] || !obj[key].length){
+            delete obj[key];
+        }
+    }
+}
+
+export function getQueriedProducts(queryParams){
+    cleanEmptyValues(queryParams);
+
+    const queryString = new URLSearchParams(queryParams).toString();
+    const requestString = `products${queryString.length ? '?' + queryString : ''}`;
+
+    return serverRequest(requestString);
 }
 
 export function getPromotions(){

@@ -1,3 +1,21 @@
 .container {
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+
+    header {
+        background-color: violet;
+
+        flex: 1;
+    }
+
+    main {
+        background-color: yellowgreen;
+
+        flex: 10;
+        overflow-y: scroll;
+
+        .item {
+            border: 1px solid purple;
+        }
+    }
 }

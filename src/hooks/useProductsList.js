@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
-import { getProducts } from '../services/products.service';
-import { getVendors } from "../services/backend.service";
+import { getProducts, getProductVendors } from '../services/products.service';
 
-export default function useProductsList(query){
+export default function useProductsList(name, vendor){
 
     const [products, setProducts] = useState();
     const [vendors, setVendors] = useState();
 
     useEffect(() => {
-        getProducts(query).then(setProducts);
-    }, [query]);
+        getProducts(name, vendor).then((products) => {
+            setProducts(products)
+        });
+    }, [name, vendor]);
 
     useEffect(() => {
-        getVendors().then(setVendors);
+        getProductVendors().then((vendors) => {
+            setVendors(vendors);
+        });
     }, []);
 
     return [products, vendors];
