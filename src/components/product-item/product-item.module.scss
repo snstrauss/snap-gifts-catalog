@@ -1,42 +1,97 @@
 .container {
-    background-color: white;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    flex-direction: column;
-
     position: relative;
 
-    .details {
-        border: 1px solid red;
-    }
-
-    .name {
-        flex: 1;
-
-        h3 {
-            margin: 0;
-        }
-    }
-
-    .media {
-        flex: 5;
+    .background {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
 
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
 
-        img {
-            border: 2px solid blue;
-            --size: 80%;
-            width: var(--size);
-            height: var(--size);
+        border: 1px solid var(--light-grey);
+        --curve: 10px;
+        border-radius: var(--curve);
+
+        animation: fade-in 0.3s linear;
+
+        .details {
+            position: absolute;
+            bottom: -1%;
+            width: 100%;
+            height: 35%;
+            color: white;
+
+            border-bottom-right-radius: var(--curve);
+            border-bottom-left-radius: var(--curve);
+
+            --gradient-color: 35%;
+            background-image: linear-gradient(
+                                to bottom,
+                                hsla(0, 0%, var(--gradient-color), 0) 0%,
+                                hsla(0, 0%, var(--gradient-color), 0.06) 6.4%,
+                                hsla(0, 0%, var(--gradient-color), 0.13) 12.2%,
+                                hsla(0, 0%, var(--gradient-color), 0.208) 17.4%,
+                                hsla(0, 0%, var(--gradient-color), 0.292) 22.3%,
+                                hsla(0, 0%, var(--gradient-color), 0.379) 27%,
+                                hsla(0, 0%, var(--gradient-color), 0.469) 31.7%,
+                                hsla(0, 0%, var(--gradient-color), 0.558) 36.6%,
+                                hsla(0, 0%, var(--gradient-color), 0.644) 41.8%,
+                                hsla(0, 0%, var(--gradient-color), 0.726) 47.4%,
+                                hsla(0, 0%, var(--gradient-color), 0.801) 53.6%,
+                                hsla(0, 0%, var(--gradient-color), 0.867) 60.7%,
+                                hsla(0, 0%, var(--gradient-color), 0.922) 68.7%,
+                                hsla(0, 0%, var(--gradient-color), 0.964) 77.8%,
+                                hsla(0, 0%, var(--gradient-color), 0.991) 88.2%,
+                                hsl(0, 0%, var(--gradient-color)) 100%
+                            );
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            transition: opacity 0.4s linear;
+            opacity: 0;
+
+            span {
+                margin: 1%;
+            }
+
+            .name {
+                font-family: WorkSans-SemiBold;
+                font-size: 1.2em;
+            }
+
+            .vendor {
+                font-size: 0.8em;
+                margin-bottom: 1.5%;
+                font-family: WorkSans-Light;
+            }
+        }
+
+        @media (hover: hover){
+            &:hover {
+                .details {
+                    opacity: 1;
+                }
+            }
+        }
+        @media (hover: none){
+            .details {
+                opacity: 1;
+            }
         }
     }
 
-    .vendor {
-        flex: 0.5;
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 100;
+        }
     }
 }

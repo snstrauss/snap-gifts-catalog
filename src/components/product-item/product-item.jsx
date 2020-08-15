@@ -12,17 +12,19 @@ export default function ProductItem({ item: { name, media, vendor }, idx }){
     const backgroundImage = useProductImageBackground(image.url, isInView, name);
 
     return (
-        <div ref={targetRef} className={S.container} style={{ backgroundImage }}>
+        <div ref={targetRef} className={S.container}>
             {
                 backgroundImage.length
                 ?
-                <div className={S.details}>
-                    <span className={S.name}>
-                        <h3>{name}</h3>
-                    </span>
-                    <span className={S.vendor}>
-                        {vendor}
-                    </span>
+                <div className={S.background} style={{ backgroundImage }}>
+                    <div className={S.details}>
+                        <span className={S.name}>
+                            {name}
+                        </span>
+                        <span className={S.vendor}>
+                            {vendor}
+                        </span>
+                    </div>
                 </div>
                 :
                 <LoadingSpinner delay={idx * 0.25}/>

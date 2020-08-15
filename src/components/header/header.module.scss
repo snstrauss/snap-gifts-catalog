@@ -11,7 +11,7 @@
         max-width: 70ch;
         max-height: 6ch;
 
-        --border: 1px solid #123;
+        --border: 1px solid var(--light-grey);
         --curve: 10px;
         border: var(--border);
         border-radius: var(--curve);
@@ -24,6 +24,7 @@
             outline: none;
             border: none;
             border-right: var(--border);
+            font-family: WorkSans-Light;
         }
 
         .select {
