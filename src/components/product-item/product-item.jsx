@@ -23,14 +23,14 @@ export default function ProductItem({ item, idx, onClick }){
         setShowItem(isInView && mediaIsReady);
     }, [isInView, mediaReady]);
 
-    function mediaReady(media, player){
+    function mediaReady(){
         setMediaIsReady(true);
     }
 
     const mediaClassName = `${S.media} ${showItem ? '' : S.hidden}`;
 
     return (
-        <div ref={targetRef} className={S.container} onClick={onClick}>
+        <div ref={targetRef} className={S.container} onClick={() => showItem && onClick()}>
             <div className={S.background}>
                 {
                     showItem

@@ -13,10 +13,10 @@ export default function ProductMedia( { media: { type, url, id }, controls, volu
     const mediaDataUrl = useProductMedia(url, isInView);
 
     useEffect(() => {
-        if(mediaDataUrl.length){
-            ready({ type, url, id}, mediaParent.current.children[0]);
+        if(mediaDataUrl.length && ready){
+            ready();
         }
-    }, [mediaDataUrl.length, type, url, id])
+    }, [mediaDataUrl.length])
 
     useEffect(() => {
         if(type === 'video'){
