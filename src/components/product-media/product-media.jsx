@@ -1,16 +1,27 @@
 import React, { useRef, useEffect } from 'react';
 import S from './product-media.module.scss';
 import useIsInViewport from 'use-is-in-viewport';
+import useProductMedia from '../../hooks/useProductMedia';
 
-export default function ProductMedia( { media: { type, url, id }, idx }){
+export default function ProductMedia( { media: { type, url, id }, controls, volume, ready }){
 
     const mediaParent = useRef();
     const [isInView, targetRef] = useIsInViewport({
         threshold: 100
     });
+
+    const mediaDataUrl = useProductMedia(url, isInView);
+
+    useEffect(() => {
+        if(mediaDataUrl.length){
+            ready({ type, url, id}, mediaParent.current.children[0]);
+        }
+    }, [mediaDataUrl.length, type, url, id])
+
     useEffect(() => {
         if(type === 'video'){
             const player = mediaParent.current.children[0];
+            player.volume = volume === false ? 0 : 1;
             if(isInView){
                 player.play();
             } else {
@@ -24,11 +35,11 @@ export default function ProductMedia( { media: { type, url, id }, idx }){
             {
                 type === 'video'
                 ?
-                <video src={url} controls ref={targetRef}/>
+                <video src={mediaDataUrl.length ? mediaDataUrl : null} controls={controls} ref={targetRef} />
                 :
                     type === 'image'
                     ?
-                    <img src={url} alt={id} ref={targetRef}/>
+                    <img src={mediaDataUrl} alt={id} ref={targetRef} />
                     :
                     null
             }

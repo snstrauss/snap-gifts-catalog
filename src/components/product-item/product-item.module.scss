@@ -1,6 +1,8 @@
 .container {
     position: relative;
 
+    --media-offset: 3px;
+
     .background {
         width: 99%;
         height: 99%;
@@ -13,15 +15,37 @@
         display: flex;
         flex-direction: column;
 
-        border: 1px solid var(--light-grey);
         animation: fade-in 0.3s linear;
+
+        .media {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            video, image {
+                width: calc(100% - var(--media-offset));
+                height: calc(100% - var(--media-offset));
+                height: 97%;
+                object-fit: fill;
+                border-radius: var(--item-curve);
+            }
+
+            &.hidden {
+                visibility: hidden;
+            }
+        }
 
         .details {
             position: absolute;
             bottom: 0%;
-            width: 99%;
+            left: var(--media-offset);
+            right: calc(-1 * var(--media-offset));
+            border-radius: var(--item-curve);
             height: 35%;
             color: white;
+            z-index: 1;
 
             --gradient-color: 35%;
             background-image: linear-gradient(

@@ -61,12 +61,12 @@ export default function ProductDetails(){
                                 <section key={type} className={S[`${type}s`]} ref={(media[type].length > 1) ? mediaContainer : null}>
                                     {
                                         media[type].map((item, idx) => (
-                                            <ProductMedia media={item} idx={idx} key={`${type}-${idx}`}/>
+                                            <ProductMedia media={item} key={`${type}-${idx}`}/>
                                         ))
                                     }
                                     {
                                         (media[type].length > 1) &&
-                                        <img onClick={nextMedia} className={S.next} style={arrowStyle} src="/images/arrow-left.png"/>
+                                        <img onClick={nextMedia} className={S.next} style={arrowStyle} src="/images/arrow-left.png" alt="next"/>
                                     }
                                 </section>
                             ))
