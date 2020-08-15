@@ -6,7 +6,14 @@
     height: 25vh;
     margin: 2vw;
 
+    border-radius: var(--item-curve);
+    overflow: hidden;
+
     & > * {
         height: 100%;
+        border-radius: inherit;
+        & > * {
+            border-radius: inherit;
+        }
     }
 }

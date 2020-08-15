@@ -9,6 +9,7 @@ function transformPromos(promos){
         prom.id = `promo-${idx}`;
         prom.isPromo = true;
     });
+    return promos;
 }
 
 export function getProducts(name, vendor){
@@ -16,8 +17,9 @@ export function getProducts(name, vendor){
         getQueriedProducts({ name, vendor }),
         getPromotions()
     ]).then(([products, promotions]) => {
-        transformPromos(promotions);
-        const productsAndPromos = products.concat(promotions).sort((a, b) => a.order - b.order);
+        const treatedPromos = transformPromos(promotions);
+        const productsAndPromos = products.concat(treatedPromos).sort((a, b) => a.order - b.order);
+
         return productsAndPromos;
     });
 }

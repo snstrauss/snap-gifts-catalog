@@ -21,7 +21,7 @@ export default function useProductImageBackground(url, shouldGetImage, name){
                 setImageDataUrl(IMAGE_CACHE[url]);
             });
         }
-    }, [url, shouldGetImage]);
+    }, [url, shouldGetImage, imageDataUrl.length]);
 
     return imageDataUrl;
 }
