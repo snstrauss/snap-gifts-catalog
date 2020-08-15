@@ -2,8 +2,9 @@ import React from 'react';
 import S from './product-item.module.scss';
 import useProductImageBackground from '../../hooks/useProductImageBackground';
 import useIsInViewport from 'use-is-in-viewport';
+import LoadingSpinner from '../loading-spinner/loading-spinner';
 
-export default function ProductItem({ item: { name, media, vendor } }){
+export default function ProductItem({ item: { name, media, vendor }, idx }){
 
     const image = media.find((med) => med.type === 'image');
 
@@ -12,16 +13,20 @@ export default function ProductItem({ item: { name, media, vendor } }){
 
     return (
         <div ref={targetRef} className={S.container} style={{ backgroundImage }}>
-            <div className={S.name}>
-                <h3>{name}</h3>
-            </div>
             {
-                !backgroundImage.length &&
-                <span>'waittt'</span>
+                backgroundImage.length
+                ?
+                <div className={S.details}>
+                    <span className={S.name}>
+                        <h3>{name}</h3>
+                    </span>
+                    <span className={S.vendor}>
+                        {vendor}
+                    </span>
+                </div>
+                :
+                <LoadingSpinner delay={idx * 0.25}/>
             }
-            <div className={S.vendor}>
-                {vendor}
-            </div>
         </div>
     );
 }

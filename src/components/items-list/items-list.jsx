@@ -18,8 +18,8 @@ export default function ItemsList({ items, ident, itemTypes }){
     return (
         <div className={S.container}>
             {
-                items.map((item) => (
-                    <GenericItem key={item[ident]} item={item} getItem={getItemComponent} />
+                items.map((item, idx) => (
+                    <GenericItem key={item[ident]} item={item} getItem={getItemComponent} idx={idx} />
                 ))
             }
         </div>

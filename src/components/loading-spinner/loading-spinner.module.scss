@@ -1,0 +1,54 @@
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    color: #fff;
+
+    .center {
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        top: 90px;
+        left: 90px;
+
+        $animation-params: 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite alternate;
+
+        @for $idx from 1 through 3 {
+            .dot#{$idx} {
+                $size: #{30px * $idx};
+                $position: #{110px - (15px * $idx)};
+                position: absolute;
+                z-index: #{4 - $idx};
+                width: $size;
+                height: $size;
+                top: $position;
+                left: $position;
+                background: #fff;
+                border-radius: 50%;
+                animation-fill-mode: both;
+                animation: expand-#{$idx} $animation-params;
+                animation-delay: var(--delay);
+            }
+        }
+    }
+
+    @for $idx from 1 through 3 {
+        @keyframes expand-#{$idx} {
+            0%,
+            #{100% - ($idx * 30%)} {
+                box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+                transform: scale(0);
+            }
+            100% {
+                box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+                transform: scale(1);
+            }
+        }
+    }
+}
+

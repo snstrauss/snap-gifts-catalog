@@ -5,7 +5,6 @@ import { CONST as productConst } from '../../services/products.service';
 
 const SEARCH_TIMEOUT = 750;
 
-
 let searchTimeoutRef;
 export default function Header({ vendors, searchChange, vendorChange }){
 
