@@ -24,12 +24,21 @@
             border: none;
             border-right: var(--border);
             font-family: WorkSans-Light;
+
+            // using m#{i}n() instead of min(),
+            // so scss compiler won't try to use it's own min function,
+            // the m#{i}n is compiled to the word 'min',
+            // and so the native CSS engine recognizes and uses it
+            // (can bu used in runtime with dynamic and incompatible values)
+            font-size: m#{i}n(5vw, 1.7em);
+            padding: 0 3%;
         }
 
         .select {
             flex: 2;
-
             & > * > * {
+                font-size: m#{i}n(4.5vw, 1.3em);
+                background-color: #f5f5f5;
                 border: none;
                 outline: none;
                 border-bottom-right-radius: var(--item-curve);
