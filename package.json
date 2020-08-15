@@ -10,7 +10,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "use-is-in-viewport": "^1.0.9"
   },
   "scripts": {
     "dev": "REACT_APP_LOCAL_IP=$(node getip.js) npm start",
