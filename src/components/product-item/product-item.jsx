@@ -4,7 +4,7 @@ import useProductImageBackground from '../../hooks/useProductImageBackground';
 import useIsInViewport from 'use-is-in-viewport';
 import LoadingSpinner from '../loading-spinner/loading-spinner';
 
-export default function ProductItem({ item: { name, media, vendor }, idx }){
+export default function ProductItem({ item: { name, media, vendor }, idx, onClick }){
 
     const image = media.find((med) => med.type === 'image');
 
@@ -12,7 +12,7 @@ export default function ProductItem({ item: { name, media, vendor }, idx }){
     const backgroundImage = useProductImageBackground(image.url, isInView, name);
 
     return (
-        <div ref={targetRef} className={S.container}>
+        <div ref={targetRef} className={S.container} onClick={onClick}>
             {
                 backgroundImage.length
                 ?

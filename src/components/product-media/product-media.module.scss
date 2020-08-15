@@ -1,0 +1,22 @@
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+        height: 70%;
+        width: m#{i}n(80%, 33em);
+        object-fit: contain;
+        outline: none;
+    }
+
+    .next {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        --point-right: 1;
+        transform: translate(-50%, -50%) scale(0.15) rotate(calc(180deg * var(--point-right)));
+    }
+}

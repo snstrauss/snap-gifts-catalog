@@ -1,3 +1,72 @@
 .container {
-    border: 1px solid green;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2%;
+
+        font-family: WorkSans-Bold;
+
+        --base-size: m#{i}n(1em, 2.7vw);
+
+        img {
+            cursor: pointer;
+            filter: saturate(0);
+            transition: filter 0.15s linear;
+            width: m#{i}n(10%, 3em);
+            margin: 0 2%;
+
+            &:hover {
+                filter: saturate(1);
+            }
+        }
+
+        h1 {
+            font-size: calc(2.5 * var(--base-size));
+            letter-spacing: 0.2ch;
+        }
+
+        h3 {
+            position: relative;
+            font-size: var(--base-size);
+            &::after {
+                content: 'Vendor';
+                position: absolute;
+                font-family: WorkSans-Light;
+                font-size: calc(0.8 * var(--base-size));
+                left: 0;
+                top: -70%;
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        & > section {
+            flex: 1 1;
+            display: flex;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            overflow: hidden;
+
+            & > * {
+                flex: 0 0 auto;
+            }
+
+            .next {
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.5) rotate(calc(180deg * var(--point-right)));
+                transition: transform 0.2s linear;
+            }
+        }
+    }
 }

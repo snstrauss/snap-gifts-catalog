@@ -4,13 +4,24 @@ import useProductsList from '../../hooks/useProductsList';
 import { useState } from 'react';
 import Header from '../../components/header/header';
 import ItemsList from '../../components/items-list/items-list';
+import { useHistory } from 'react-router-dom';
+import { ROUTES } from '../../App';
 
 export default function ProductList(){
+
+    const history = useHistory();
 
     const [productName, setProductName] = useState();
     const [selectedVendor, setSelectedVendor] = useState();
 
-    const [productsList, productVendors] = useProductsList(productName || '', selectedVendor || '');
+    const [productsList, productVendors] = useProductsList({
+        name: productName,
+        vendor: selectedVendor
+    });
+
+    function clickedOnProduct(item){
+        history.push(`${ROUTES.DETAILS}/${item.id}`, { item });
+    }
 
     return (
         <div className={S.container}>
@@ -18,7 +29,7 @@ export default function ProductList(){
             <main>
                 {
                     productsList &&
-                    <ItemsList items={productsList} ident="id"/>
+                    <ItemsList items={productsList} itemClick={clickedOnProduct} ident="id"/>
                 }
             </main>
         </div>

@@ -14,12 +14,12 @@ function getItemComponent(item){
     return ITEM_TYPES[type];
 }
 
-export default function ItemsList({ items, ident, itemTypes }){
+export default function ItemsList({ items, ident, itemClick }){
     return (
         <div className={S.container}>
             {
                 items.map((item, idx) => (
-                    <GenericItem key={item[ident]} item={item} getItem={getItemComponent} idx={idx} />
+                    <GenericItem onClick={() => itemClick(item)} key={item[ident]} item={item} getItem={getItemComponent} idx={idx} />
                 ))
             }
         </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getProducts, getProductVendors } from '../services/products.service';
 
-export default function useProductsList(name, vendor){
+export default function useProductsList({ name, vendor, id }){
 
     const [products, setProducts] = useState();
     const [vendors, setVendors] = useState();
