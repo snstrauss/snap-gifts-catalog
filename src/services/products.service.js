@@ -17,8 +17,15 @@ export function getProducts(name, vendor){
         getQueriedProducts({ name, vendor }),
         getPromotions()
     ]).then(([products, promotions]) => {
-        const treatedPromos = transformPromos(promotions);
-        const productsAndPromos = products.concat(treatedPromos).sort((a, b) => a.order - b.order);
+
+        let fullList = products;
+
+        if(products.length){
+            const treatedPromos = transformPromos(promotions);
+            fullList = fullList.concat(treatedPromos);
+        }
+
+        const productsAndPromos = fullList.sort((a, b) => a.order - b.order);
 
         return productsAndPromos;
     });

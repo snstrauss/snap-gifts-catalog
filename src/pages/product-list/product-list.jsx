@@ -6,6 +6,7 @@ import Header from '../../components/header/header';
 import ItemsList from '../../components/items-list/items-list';
 import { useHistory } from 'react-router-dom';
 import { ROUTES } from '../../App';
+import Empty from '../../components/empty/empty';
 
 export default function ProductList(){
 
@@ -30,6 +31,10 @@ export default function ProductList(){
                 {
                     productsList &&
                     <ItemsList items={productsList} itemClick={clickedOnProduct} ident="id"/>
+                }
+                {
+                    productsList && !productsList.length &&
+                    <Empty/>
                 }
             </main>
         </div>
