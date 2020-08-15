@@ -1,9 +1,21 @@
+$font-types: ("Regular", "Light", "SemiBold", "Bold");
+@each $type in $font-types {
+    @font-face {
+        font-family: WorkSans-#{$type};
+        src: url("/fonts/WorkSans-#{$type}.ttf");
+    }
+}
+
 html, body, #root {
     height: 100vh;
     margin: 0;
     overflow: hidden;
+
+    font-family: WorkSans-Regular;
 }
 
 #root > div {
     height: 100%;
+
+    --light-grey: #DDD;
 }
