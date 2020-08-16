@@ -4,7 +4,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { ROUTES } from '../../App';
 import useItemMedia from '../../hooks/useItemMedia';
 import ProductMedia from '../../components/product-media/product-media';
-import { isElementInViewport } from '../../services/utils';
+import { isElementInViewport } from '../../services/utils.service';
 
 export default function ProductDetails(){
 

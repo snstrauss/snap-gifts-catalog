@@ -14,7 +14,7 @@ function cleanEmptyValues(obj){
     }
 }
 
-export function getQueriedProducts(queryParams){
+export function getQueriedProducts(queryParams = {}){
     cleanEmptyValues(queryParams);
 
     const queryString = new URLSearchParams(queryParams).toString();

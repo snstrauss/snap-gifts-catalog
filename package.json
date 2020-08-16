@@ -17,7 +17,7 @@
     "dev": "REACT_APP_LOCAL_IP=$(node getip.js) npm start",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --verbose",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,5 +37,8 @@
   },
   "engines": {
     "node": "12.x"
+  },
+  "devDependencies": {
+    "jest": "24.9.0"
   }
 }

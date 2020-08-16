@@ -1,8 +1,8 @@
-export function randomInt(limit) {
+export function randomInt(limit = 9) {
     return Math.floor(Math.random() * Math.floor(limit));
 }
 
-export function randomFromList(list){
+export function randomFromList(list = []){
     return list[randomInt(list.length)];
 }
 
