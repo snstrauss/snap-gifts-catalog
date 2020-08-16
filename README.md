@@ -18,6 +18,11 @@ Server will run on ```localhost:3000```.
 
 ---
 
+## Run Tests
+```npm run test```
+
+---
+
 ## Structure and Behavior
 The consists of 2 routes - one for list of all products, and another for product details.
 
