@@ -5,6 +5,8 @@
     align-items: center;
     justify-content: center;
 
+    position: relative;
+
     & > * {
         height: 70%;
         width: m#{i}n(80%, 33em);
@@ -18,5 +20,9 @@
         left: 50%;
         --point-right: 1;
         transform: translate(-50%, -50%) scale(0.15) rotate(calc(180deg * var(--point-right)));
+    }
+
+    img[src=""]{
+        visibility: hidden;
     }
 }
