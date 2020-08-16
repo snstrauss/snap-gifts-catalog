@@ -11,6 +11,11 @@ $ npm run dev
 ```
 Server will run on ```localhost:3000```.
 
+-OR-
+
+## [See it live!](https://snap-gifts.herokuapp.com/)
+(albeit a bit slow..)
+
 ---
 
 ## Structure and Behavior
