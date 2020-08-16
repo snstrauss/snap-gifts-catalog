@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import S from './product-list.module.scss';
 import useProductsList from '../../hooks/useProductsList';
-import { useState } from 'react';
+
 import Header from '../../components/header/header';
 import ItemsList from '../../components/items-list/items-list';
 import { useHistory } from 'react-router-dom';
