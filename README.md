@@ -13,7 +13,8 @@ Server will run on ```localhost:3000```.
 
 -OR-
 
-## [See it live!](https://snap-gifts.herokuapp.com/){:target="_blank"}
+<!-- ## [See it live!](https://snap-gifts.herokuapp.com/) -->
+<h2><a href="https://snap-gifts.herokuapp.com" target="_blank">See it live!</a></h2>
 (albeit a bit slow..)
 
 ---
